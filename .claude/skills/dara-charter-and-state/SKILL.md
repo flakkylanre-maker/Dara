@@ -21,42 +21,39 @@ source code yet, so its load-bearing "architecture" is the project itself:
 what exists, what must stay true, and where everything else is written down.
 Read this once, then jump to the sibling skill that owns your task.
 
-## 1. What Dara is today (verified 2026-07-07)
+## 1. What Dara is today (verified 2026-07-08)
 
-Dara is the repository `flakkylanre-maker/Dara`. As of 2026-07-07 its ONLY
-artifact is a skill library under `.claude/skills/`. There is no source code,
-no README, no CI, no tests, no issues, and no `main` branch.
+Dara is the repository `flakkylanre-maker/Dara`. As of 2026-07-08 its ONLY
+artifact is this skill library under `.claude/skills/` (twelve skills — see
+Section 3). There is no source code, no README, no CI, no tests, no issues,
+and no `main` branch.
 
-Verified state (all commands run from the repo root on 2026-07-07):
+Verified state (all commands run from the repo root on 2026-07-08):
 
 ```
 git ls-remote origin
 ```
 
-returned exactly one branch ref — `refs/heads/claude/fable-5-decision-skill-hbdiak`
-at commit `ccbe52d` — plus its matching `HEAD` line. One branch, no `main`.
+returned refs for exactly one branch —
+`refs/heads/claude/fable-5-decision-skill-hbdiak` — plus its matching `HEAD`
+line. One branch, no `main`.
 
 ```
 find . -type f -not -path './.git/*'
 ```
 
-returned exactly two files:
+returned only the library's `SKILL.md` files plus one local-only file that
+must never be committed: `.claude/settings.local.json` (see
+`dara-change-control` rule 4).
 
-- `.claude/skills/fable-decision-style/SKILL.md` — the first skill (commit
-  `ccbe52d`, dated 2026-07-07)
-- `.claude/settings.local.json` — a small local permissions file
+Founding facts: the repo's first commit is `ccbe52d` (2026-07-07), which
+added the first skill, `fable-decision-style`. The rest of the library was
+authored 2026-07-08.
 
-```
-git log -1 --format='%h %ad %s' --date=short
-```
-
-returned `ccbe52d 2026-07-07 Add fable-decision-style skill documenting
-answering and decision-making approach`.
-
-**Purpose/domain: UNDEFINED as of 2026-07-07.** What Dara will actually build
+**Purpose/domain: UNDEFINED as of 2026-07-08.** What Dara will actually build
 or do has not been stated by the founder.
 
-> ASSUMPTION (2026-07-07, unconfirmed): Dara is greenfield — a brand-new
+> ASSUMPTION (2026-07-08, unconfirmed): Dara is greenfield — a brand-new
 > project with no prior codebase elsewhere — and this skill library is its
 > founding discipline layer, written before the code so that cheaper models
 > can carry the project at a principal-engineer standard. The founder has not
@@ -86,7 +83,7 @@ time. Unverifiable content is either omitted or labeled
 **Why.** This library exists to steer Sonnet-class models. A cheaper model
 following a runbook does not second-guess it; a wrong command or invented
 path misdirects it silently, and the failure surfaces far from the lie. The
-motivating incident (2026-07-07): a task brief assumed a mature codebase, and
+motivating incident (2026-07-07/08): a task brief assumed a mature codebase, and
 only an explicit `git ls-remote origin` check revealed the repo was empty.
 Had that framing been written into a skill unverified, every later session
 would have inherited the fiction. Corollary: **verify repo state before
@@ -105,7 +102,7 @@ container is reclaimed when the session ends, and the next session starts
 from a fresh clone with zero conversational context. There is no shared
 scratch space, no persistent chat history the next model can rely on. The
 repo is the only durable medium, and skills are its only structured content
-today (verified 2026-07-07: the repo contains nothing else — see Section 1).
+today (verified 2026-07-08: the repo contains nothing else beyond the library — see Section 1).
 
 ### Invariant 3: All repo changes route through `dara-change-control`
 
@@ -125,7 +122,7 @@ sanctioned.
 ### Invariant 4: Domain-dependent content stays deferred
 
 Until the founder confirms Dara's domain, no one authors content that
-depends on knowing it. As of 2026-07-07 three skills are explicitly deferred
+depends on knowing it. As of 2026-07-08 three skills are explicitly deferred
 for this reason: `dara-domain-reference`, `dara-config-and-flags`, and
 `dara-proof-and-analysis-toolkit`. `dara-bootstrap-campaign` defines when and
 how they get unblocked.
@@ -138,10 +135,9 @@ library built on an invented domain is not.
 
 ## 3. Library map
 
-The roster below is the complete planned library as of 2026-07-07. Most
-entries are being authored in parallel with this one — check what actually
-exists on disk with `ls .claude/skills/` (on 2026-07-07 that returned only
-`fable-decision-style`; expect more after the authoring branches merge).
+The roster below is the complete library as of 2026-07-08 — all twelve
+entries exist on disk (verify with `ls .claude/skills/`; the three DEFERRED
+names at the end of this section intentionally do not).
 
 | Skill | Load it when... |
 |---|---|
@@ -166,7 +162,7 @@ One home per fact: each skill owns its row's scope. If you find the same
 fact stated in two skills, that is a bug — fix it via `dara-change-control`
 so one skill owns it and the other points there.
 
-## 4. Known weak points (as of 2026-07-07)
+## 4. Known weak points (as of 2026-07-08)
 
 State these plainly to yourself before planning work; several of them
 invalidate common defaults.
@@ -175,11 +171,11 @@ invalidate common defaults.
    that presumes a product, user, or tech stack is speculation.
 2. **Founder's intent unconfirmed, and the confirmation channel is broken.**
    The interactive question tool (`AskUserQuestion`) failed twice on
-   2026-07-07 with "Tool permission stream closed before response received"
+   2026-07-08 with "Tool permission stream closed before response received"
    — status open. Workaround: ask questions as plain text in your reply,
    proceed on explicitly documented assumptions, and label them per
    Invariant 1. Full incident record: `dara-failure-archaeology`.
-3. **No `main` branch.** Verified 2026-07-07 via `git ls-remote origin`:
+3. **No `main` branch.** Verified 2026-07-08 via `git ls-remote origin`:
    the only branch is `claude/fable-5-decision-skill-hbdiak`. There is no
    integration target yet; do not assume one exists or invent one — branch
    strategy is owned by `dara-change-control`.
@@ -191,7 +187,7 @@ invalidate common defaults.
    assumption could be wrong — Dara might be a rewrite, a fork-to-be, or a
    placeholder. Every skill leaning on it carries the dated label; if the
    founder contradicts it, those labels are the checklist of what to revisit.
-6. **The library is self-referential and unproven.** As of 2026-07-07 no
+6. **The library is self-referential and unproven.** As of 2026-07-08 no
    skill here has been exercised by a later cold-start session. Treat the
    library itself as a candidate system, not a validated one, until
    `dara-validation-and-qa` procedures have been run against it in anger.
@@ -219,10 +215,11 @@ If your question is "how", you are in the wrong skill.
 
 ## 6. Provenance and maintenance
 
-- Authored 2026-07-07 in a remote Claude Code session, against the live repo
-  at commit `ccbe52d` (the repo's only commit at the time). Every command in
-  this file was run in that session and its output confirmed before being
-  written down. Incidents cited are from the 2026-07-07 session history;
+- Authored 2026-07-08 in a remote Claude Code session (initially against the
+  repo at its founding commit `ccbe52d`; Sections 1 and 3 re-verified and
+  updated the same day after the full library landed). Every command in this
+  file was run in that session and its output confirmed before being written
+  down. Incidents cited are from the 2026-07-07/08 session history;
   `dara-failure-archaeology` is their system of record.
 - This skill goes stale the moment the repo gains a domain, a `main` branch,
   or source code. Re-verify before trusting Sections 1, 3, and 4:

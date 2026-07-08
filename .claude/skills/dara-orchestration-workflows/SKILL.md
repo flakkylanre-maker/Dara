@@ -114,7 +114,7 @@ system prompt — never hardcode it) and start every agent prompt with:
 |---|---|
 | Lens checklists still match | Open `dara-validation-and-qa` §3 |
 | F3 stays accurate | `rg -n 'E6' .claude/skills/dara-failure-archaeology/SKILL.md` |
-| Lead-owns-git still doctrine | `rg -n 'mutating git' .claude/skills/dara-orchestration-workflows/SKILL.md .claude/skills/dara-change-control/SKILL.md` |
+| Lead-owns-git still doctrine | `rg -n 'never run mutating git' .claude/skills/dara-orchestration-workflows/SKILL.md` and `rg -n 'force-push' .claude/skills/dara-change-control/SKILL.md` — both must hit |
 
 - If the platform's agent semantics change (context sharing, persistence),
   Section 1's table is the first thing to re-derive — it encodes the

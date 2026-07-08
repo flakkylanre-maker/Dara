@@ -122,7 +122,7 @@ The campaign is DONE when every box checks (run the commands; do not eyeball):
 - [ ] Charter contains a founder-confirmed domain statement:
       `rg -n 'UNDEFINED' .claude/skills/dara-charter-and-state/SKILL.md`
       returns nothing
-- [ ] E5 settled: `rg -A6 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md | rg 'Status: settled'` returns a match
+- [ ] E5 settled: `rg -A10 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md | rg 'Status: settled'` returns a match
 - [ ] No load-bearing unconfirmed assumptions remain:
       `rg -n 'ASSUMPTION' .claude/skills/ -g 'SKILL.md'` returns only entries
       that are dated AND non-load-bearing (each survivor justified in the
@@ -168,7 +168,7 @@ The campaign is DONE when every box checks (run the commands; do not eyeball):
 | Claim | One-line re-verification |
 |---|---|
 | Premise (empty repo, no main) | `git ls-remote origin && find . -type f -not -path './.git/*'` |
-| E5 still open | `rg -A6 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md \| rg 'Status'` |
+| E5 still open | `rg -A10 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md \| rg 'Status'` |
 | E2 still open (question tool) | attempt one interactive question; note result in the ledger |
 | Deferred list unchanged | `rg -n 'deferred' .claude/skills/dara-charter-and-state/SKILL.md` |
 

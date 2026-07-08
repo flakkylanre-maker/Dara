@@ -135,4 +135,4 @@ description: >-
 | Layout convention holding | `find .claude/skills -name 'SKILL.md' \| sort` |
 | All skills carry the 3 mandatory sections | `rg --files-without-match 'Provenance and maintenance' .claude/skills/ -g 'SKILL.md'` (only `fable-decision-style` may appear — it predates house style); same for `'When NOT to use'` |
 | Descriptions are trigger-rich | `rg -A3 '^description' .claude/skills/*/SKILL.md \| head -50` and check each names load-situations |
-| No stray private data | `rg -i '@gmail\|@outlook\|session_01' .claude/skills/` (empty = good) |
+| No stray private data | `rg -i -e '@gmail[.]' -e '@outlook[.]' -e 'session[_]01' .claude/skills/` (empty = good; the bracketed classes stop this line from matching itself) |
