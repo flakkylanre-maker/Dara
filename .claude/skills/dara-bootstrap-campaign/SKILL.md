@@ -1,15 +1,16 @@
 ---
 name: dara-bootstrap-campaign
 description: >-
-  The executable, decision-gated campaign for Dara's hardest live problem (as
-  of 2026-07-08): the project has no code and an unconfirmed purpose, and the
-  library's domain-dependent skills are deferred — a session must establish
-  what Dara IS and ground the library in it without fabricating anything.
-  Load this when: asked to "move Dara forward", define the domain, add the
-  first code, unblock the deferred skills (dara-domain-reference,
-  dara-config-and-flags, dara-proof-and-analysis-toolkit), or ingest a
-  newly-revealed codebase. Triggers: "what should Dara be", "start building",
-  "the founder answered", "add the real repo", "bootstrap".
+  The executable, decision-gated campaign for Dara's hardest live problem.
+  Status 2026-07-08: the founder interview is DONE (domain confirmed: a
+  personal build-vault); the campaign is gated at Phase 2A, waiting for the
+  founder to push Dara's local content — then sweep it and unblock the
+  deferred skills (dara-domain-reference, dara-config-and-flags,
+  dara-proof-and-analysis-toolkit). Load this when: the founder pushes new
+  content; asked to "move Dara forward" or "start building"; ingesting a
+  newly-revealed codebase; or checking what still blocks the deferred
+  skills. Triggers: "I pushed it", "the content is up", "start building",
+  "bootstrap", "consumer app".
 ---
 
 # Dara Bootstrap Campaign
@@ -18,10 +19,30 @@ Numbered phases, exact commands, expected observations at every gate, and
 explicit branches. Success at the end is **checklist-measured, never judged
 by eye**. Every state change routes through `dara-change-control`.
 
-**The problem, precisely:** Dara's domain is undefined and the greenfield
-assumption is unconfirmed (open ledger entry `dara-failure-archaeology` E5).
-Three skills are deferred because writing them now would be fabrication
-(charter Invariant 4). This campaign closes E5 and unblocks them.
+**The problem, precisely:** Dara's content and conventions are not yet in
+this repo, so the library's content-dependent skills are deferred — writing
+them now would be fabrication (charter Invariant 4). This campaign gets the
+real content in, sweeps it, and unblocks them.
+
+## Campaign status (updated 2026-07-08)
+
+**Phase 1 is COMPLETE.** The founder answered all five questions in a
+plain-text reply (E2's workaround — the interactive tool is still broken):
+
+1. Content location: **the founder's machine, UNPUSHED** (branch 2A-pending).
+2. Domain: Dara stores everything the founder will need to build future
+   projects — a personal build-vault.
+3. Consumers: the founder only, operating through AI sessions.
+4. Next milestone: **build a consumer app** → seed of the next campaign
+   skill once the vault content and app intent are concrete.
+5. Unwritten rules: none yet.
+
+Ledger E5 is settled with these answers; the charter carries the confirmed
+domain statement.
+
+**CURRENT GATE: Phase 2A is blocked on the founder pushing the local content
+to this repo.** When it lands, run the 2A sweep on it, then Phase 3. Do not
+author content-dependent skills before the push.
 
 ## Phase 0 — Verify the campaign's premise (always run first)
 
@@ -43,8 +64,9 @@ anything, then update the charter's Section 1 (class B/C per
 
 ## Phase 1 — Founder interview
 
-These questions are unanswered as of 2026-07-08. Every downstream branch
-depends on them; do not substitute guesses.
+ANSWERED 2026-07-08 — see "Campaign status" above; kept for the record and
+for re-use if the campaign is ever re-run. Every downstream branch depends
+on real answers; never substitute guesses.
 
 1. **Where does the real code live?** (a) another repo — name it so it can be
    added to the session; (b) nowhere — greenfield, confirm it; (c) local and
@@ -122,7 +144,7 @@ The campaign is DONE when every box checks (run the commands; do not eyeball):
 - [ ] Charter contains a founder-confirmed domain statement:
       `rg -n 'UNDEFINED' .claude/skills/dara-charter-and-state/SKILL.md`
       returns nothing
-- [ ] E5 settled: `rg -A10 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md | rg 'Status: settled'` returns a match
+- [ ] E5 settled: `rg -A20 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md | rg 'Status: settled'` returns a match
 - [ ] No load-bearing unconfirmed assumptions remain:
       `rg -n 'ASSUMPTION' .claude/skills/ -g 'SKILL.md'` returns only entries
       that are dated AND non-load-bearing (each survivor justified in the
@@ -168,7 +190,8 @@ The campaign is DONE when every box checks (run the commands; do not eyeball):
 | Claim | One-line re-verification |
 |---|---|
 | Premise (empty repo, no main) | `git ls-remote origin && find . -type f -not -path './.git/*'` |
-| E5 still open | `rg -A10 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md \| rg 'Status'` |
+| E5 settled (Phase 1 done) | `rg -A20 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md \| rg 'Status'` |
+| Phase 2A still gated (content unpushed) | `git ls-remote origin` — only `claude/*` refs means still waiting |
 | E2 still open (question tool) | attempt one interactive question; note result in the ledger |
 | Deferred list unchanged | `rg -n 'deferred' .claude/skills/dara-charter-and-state/SKILL.md` |
 

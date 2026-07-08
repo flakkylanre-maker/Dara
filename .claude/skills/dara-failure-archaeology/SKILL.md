@@ -80,7 +80,9 @@ to re-fight. The protocol matters more than today's entry count.
 - Status: open.
 - Consequence: standing workaround — retry once, then ask questions as plain
   text in the reply and proceed on labeled `ASSUMPTION`s
-  (`dara-debugging-playbook` row 2). Blocks founder confirmation of E5.
+  (`dara-debugging-playbook` row 2). Initially blocked founder confirmation
+  of E5; E5 was later settled through this very workaround (2026-07-08),
+  which validates it.
 
 ### E3: GitHub MCP server flaps mid-session (2026-07-08)
 - Symptom: `mcp__github__*` tools repeatedly announced as disconnected, then
@@ -109,12 +111,22 @@ to re-fight. The protocol matters more than today's entry count.
   founding discipline layer.
 - Root cause: n/a — assumption, adopted because the repo is verifiably empty
   and the founder could not be asked (see E2).
-- Evidence: empty repo per E1's commands; founder confirmation pending —
-  the interview questions live in `dara-bootstrap-campaign` Phase 1.
-- Status: **open**.
-- Consequence: charter Invariant 4 (domain content deferred); every skill
-  leaning on the assumption carries a dated `ASSUMPTION` label, which doubles
-  as the revisit checklist if the founder contradicts it.
+- Evidence: empty repo per E1's commands; then, on 2026-07-08, the founder
+  answered all five founding questions via plain-text reply (E2's
+  workaround): (1) Dara's content lives on the founder's machine, UNPUSHED;
+  (2) Dara stores everything the founder will need to build future projects
+  (a personal build-vault); (3) the founder is the sole consumer, operating
+  through AI sessions; (4) next milestone: build a consumer app; (5) no
+  unwritten rules exist yet.
+- Status: settled (2026-07-08). The assumption was REFINED rather than
+  simply confirmed: Dara is not strictly greenfield — content exists locally
+  — but "the library is the founding discipline layer" holds. The lesson for
+  future assumptions: expect refinement, not yes/no.
+- Consequence: charter Section 1 rewritten with the confirmed domain;
+  Invariant 4's deferral re-keyed from "domain unconfirmed" to "content
+  unpushed"; `dara-bootstrap-campaign` gate moved to Phase 2A (awaiting the
+  founder's push); the consumer-app milestone recorded as the next campaign
+  seed.
 
 ### E6: Parallel authoring agents killed by account session limit (2026-07-08)
 - Symptom: all 11 parallel skill-authoring subagents terminated with API
@@ -150,7 +162,7 @@ to re-fight. The protocol matters more than today's entry count.
 |---|---|
 | E1 evidence still reproduces (until code lands) | `git ls-remote origin` |
 | E4 limitation still holds | attempt `list_repos` once and read the error |
-| E5 still open | `rg -c 'ASSUMPTION' .claude/skills/ -g 'SKILL.md'` (nonzero = still open) |
+| E5 settled | `rg -A20 '^### E5' .claude/skills/dara-failure-archaeology/SKILL.md \| rg 'Status: settled'` (must hit) |
 | Entry numbering intact | `rg '^### E' .claude/skills/dara-failure-archaeology/SKILL.md` |
 
 - E2/E3/E5 are OPEN: whichever session observes them resolved (question tool

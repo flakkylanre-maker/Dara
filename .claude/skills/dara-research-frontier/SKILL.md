@@ -68,9 +68,10 @@ maintenance task with ZERO blocking-severity violations, twice consecutively
 
 | Slot | What unblocks it |
 |---|---|
-| Domain-specific frontier problems | `dara-bootstrap-campaign` Phases 1–2: founder confirms the domain |
-| "Beyond state of the art" definition for Dara's field | Same — meaningless until the field is named |
-| Benchmarks / golden results to beat | Bootstrap Phase 3 (needs real code and `dara-validation-and-qa` §6) |
+| Domain-specific frontier problems | Domain confirmed 2026-07-08 (personal build-vault; next milestone: a consumer app) — now blocked on the founder PUSHING the local content (`dara-bootstrap-campaign` Phase 2A) so entries can be grounded in what actually exists |
+| "Beyond state of the art" definition for Dara's field | Same push + sweep — undefined until the vault's content shows what field(s) Dara actually spans |
+| Benchmarks / golden results to beat | Bootstrap Phase 3 (needs real content and `dara-validation-and-qa` §6) |
+| Consumer-app campaign (founder's named milestone, 2026-07-08) | The push, plus the founder describing the app; enters as a campaign skill via the intake rule below |
 
 Writing an entry into a blocked slot without its unblocking condition met is
 fabrication — charter Invariant 4 applies to research directions exactly as
@@ -104,7 +105,7 @@ through `dara-research-methodology` §2's lifecycle first.
 
 | Claim | One-line re-verification |
 |---|---|
-| Domain still undefined (blocked slots valid) | `rg -n 'UNDEFINED' .claude/skills/dara-charter-and-state/SKILL.md` |
+| Blocked slots still valid (content unpushed) | `git ls-remote origin` — only `claude/*` refs means still blocked |
 | Problem 1 still unrun | `rg -n 'Status' .claude/skills/dara-research-frontier/SKILL.md` — update after any evaluation run |
 | Checklist referenced still exists | `rg -n 'FACTUAL lens' .claude/skills/dara-validation-and-qa/SKILL.md` |
 

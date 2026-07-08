@@ -50,16 +50,19 @@ Founding facts: the repo's first commit is `ccbe52d` (2026-07-07), which
 added the first skill, `fable-decision-style`. The rest of the library was
 authored 2026-07-08.
 
-**Purpose/domain: UNDEFINED as of 2026-07-08.** What Dara will actually build
-or do has not been stated by the founder.
+**Purpose/domain (founder-confirmed 2026-07-08):** Dara is the founder's
+personal build-vault — the repository that stores everything the founder
+will need to build future projects. Its sole consumer is the founder,
+operating through AI sessions (so skills stay written for a zero-context
+Sonnet-class reader — that IS how the founder consumes them). The founder's
+named next milestone: **build a consumer app** (recorded as the seed of the
+next campaign — see `dara-bootstrap-campaign`). No unwritten rules exist yet
+(founder, same answer set). Full evidence: `dara-failure-archaeology` E5.
 
-> ASSUMPTION (2026-07-08, unconfirmed): Dara is greenfield — a brand-new
-> project with no prior codebase elsewhere — and this skill library is its
-> founding discipline layer, written before the code so that cheaper models
-> can carry the project at a principal-engineer standard. The founder has not
-> confirmed this. Treat every downstream decision that leans on it as
-> revisable. `dara-bootstrap-campaign` owns the process for getting it
-> confirmed.
+One confirmed fact is still pending materialization: **Dara's content exists
+on the founder's machine, UNPUSHED.** This repo will not reflect it until the
+founder pushes it. Until that push, the verified repo state above remains the
+ground truth and content-dependent skills stay deferred (Invariant 4).
 
 The founder (the repo owner) operates Dara through remote Claude Code
 sessions. Each session runs in an ephemeral Linux container with a fresh
@@ -119,13 +122,14 @@ created unless the founder explicitly asks. A session that improvises its
 own git workflow can strand work or publish something the founder never
 sanctioned.
 
-### Invariant 4: Domain-dependent content stays deferred
+### Invariant 4: Content-dependent skills stay deferred
 
-Until the founder confirms Dara's domain, no one authors content that
-depends on knowing it. As of 2026-07-08 three skills are explicitly deferred
-for this reason: `dara-domain-reference`, `dara-config-and-flags`, and
-`dara-proof-and-analysis-toolkit`. `dara-bootstrap-campaign` defines when and
-how they get unblocked.
+The domain was founder-confirmed on 2026-07-08 (Section 1), but Dara's actual
+content is still on the founder's machine, unpushed. Until it lands in this
+repo and is swept (`dara-bootstrap-campaign` Phase 2A), no one authors
+content that depends on knowing it. As of 2026-07-08 three skills remain
+deferred for this reason: `dara-domain-reference`, `dara-config-and-flags`,
+and `dara-proof-and-analysis-toolkit`.
 
 **Why.** This is Invariant 1 applied at the scale of a whole document: with
 the domain undefined, a domain skill could only be fabricated, and a
@@ -167,13 +171,14 @@ so one skill owns it and the other points there.
 State these plainly to yourself before planning work; several of them
 invalidate common defaults.
 
-1. **Domain undefined.** Dara's purpose is not stated anywhere. Any plan
-   that presumes a product, user, or tech stack is speculation.
-2. **Founder's intent unconfirmed, and the confirmation channel is broken.**
-   The interactive question tool (`AskUserQuestion`) failed twice on
-   2026-07-08 with "Tool permission stream closed before response received"
-   — status open. Workaround: ask questions as plain text in your reply,
-   proceed on explicitly documented assumptions, and label them per
+1. **Dara's content is unpushed.** The founder confirmed (2026-07-08) it
+   exists only on their machine. Until it lands here, any plan that presumes
+   what it contains — stack, structure, quality — is speculation.
+2. **The interactive confirmation channel is broken.** `AskUserQuestion`
+   failed twice on 2026-07-08 with "Tool permission stream closed before
+   response received" — status open. The five founding questions were
+   answered via plain-text reply instead (the standing workaround): ask in
+   plain text, proceed on explicitly documented assumptions, label per
    Invariant 1. Full incident record: `dara-failure-archaeology`.
 3. **No `main` branch.** Verified 2026-07-08 via `git ls-remote origin`:
    the only branch is `claude/fable-5-decision-skill-hbdiak`. There is no
@@ -183,10 +188,10 @@ invalidate common defaults.
    authority. If they are unavailable, nothing can be confirmed or merged.
    This makes Invariant 2 (write everything down) the mitigation, not a
    nicety.
-5. **The greenfield assumption is an assumption.** Section 1's working
-   assumption could be wrong — Dara might be a rewrite, a fork-to-be, or a
-   placeholder. Every skill leaning on it carries the dated label; if the
-   founder contradicts it, those labels are the checklist of what to revisit.
+5. **(Resolved 2026-07-08.)** The founding "greenfield" assumption was
+   refined by the founder's answers: Dara is a personal build-vault whose
+   content exists locally, unpushed — not a codebase living in another repo.
+   Record: `dara-failure-archaeology` E5 (settled).
 6. **The library is self-referential and unproven.** As of 2026-07-08 no
    skill here has been exercised by a later cold-start session. Treat the
    library itself as a candidate system, not a validated one, until
